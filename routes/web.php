@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     return "<h1>Hieu Thofn toi choi, bro</h1>";
+});
+
+Route::get('logInfo', function (Request $request) {
+    return response()->json([
+        'Your ip' => $request->ip(),
+        'User Agent' => $request->header('user-agent'),
+        'Name' => 'Khong phai Dang Hoan dau'
+    ]);
 });
