@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 /*
@@ -28,3 +29,9 @@ Route::get('logInfo', function (Request $request) {
         'Name' => 'Khong phai Dang Hoan dau'
     ]);
 });
+
+Route::get('users', function ()  {
+    $users = User::all();
+    return response()->json(['users' => $users ]);
+});
+
